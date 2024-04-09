@@ -9,8 +9,9 @@ jobs:
 
     strategy:
       matrix:
-        target_arch: [x64, arm64]
         target_platform: [linux, linuxmusl,darwin]
+        target_arch: [x64, arm64]
+
     
     steps:
     - name: Clone Main Repository
