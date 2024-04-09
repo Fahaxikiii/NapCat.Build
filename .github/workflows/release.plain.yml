@@ -25,7 +25,7 @@ jobs:
         node-version: 20.x
     - name: Build NuCat Linux
       run: |
-          npm install sqlite3  --build-from-source --target_arch=${{ matrix.target_arch }} --target_platform=${{ matrix.target_platform }} 
+          npm install sqlite3 --arch=${{ matrix.target_arch }} --platform=${{ matrix.target_platform }} 
           npm run build
 #         zip NapCat.zip -r ./dist
     - name: Upload Artifact
