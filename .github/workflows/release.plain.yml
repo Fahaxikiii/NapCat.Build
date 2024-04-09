@@ -26,7 +26,7 @@ jobs:
     - name: Build NuCat Linux
       run: |
           npm install sqlite3 --arch=${{ matrix.target_arch }} --platform=${{ matrix.target_platform }} 
-          npm run build
+          npm run build:prod
 #         zip NapCat.zip -r ./dist
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
