@@ -6,6 +6,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        target_arch: [x64, arm64]
+    
     steps:
     - uses: actions/checkout@v4
       with:
@@ -15,7 +20,5 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 20.x
-    - run: npm i
-    - run: npm uninstall sqlite3
-    - run: npm install sqlite3 --build-from-source=sqlite3
+    - run: npm i --target_arch=${{ matrix.target_arch }} --target_platform=linux
     - run: npm run build
