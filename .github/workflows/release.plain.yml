@@ -7,11 +7,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
+      with:
+          repository: 'NapNeko/NapCat'
+          token: ${{ secrets.NAPCAT_BUILD }}
     - name: Use Node.js
       uses: actions/setup-node@v3
       with:
         node-version: 20.x
         cache: 'npm'
     - run: npm i
+    - run: npm uninstall sqlite3
+    - run: npm install sqlite3 --build-from-source=sqlite3
     - run: npm run build
