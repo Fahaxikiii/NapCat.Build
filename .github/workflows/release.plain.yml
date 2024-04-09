@@ -27,4 +27,9 @@ jobs:
       run: |
           npm install sqlite3 --target_arch=${{ matrix.target_arch }} --target_platform=${{ matrix.target_platform }} 
           npm run build
-    
+          zip ./dist/* NapCat.zip
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: NapCat.${{ matrix.target_platform }}.${{ matrix.target_arch }}.zip
+        path: NapCat.zip
