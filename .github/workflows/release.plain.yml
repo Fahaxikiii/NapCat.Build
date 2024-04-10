@@ -31,7 +31,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: NapCat.${{ matrix.target_platform }}.${{ matrix.target_arch }}.zip
+        name: NapCat.${{ matrix.target_platform }}.${{ matrix.target_arch }}
         path: dist
   build-win32:
     runs-on: ubuntu-latest
@@ -60,5 +60,5 @@ jobs:
         - name: Upload Artifact
           uses: actions/upload-artifact@v4
           with:
-              name: NapCat.${{ matrix.target_platform }}.${{ matrix.target_arch }}.zip
+              name: NapCat.${{ matrix.target_platform }}.${{ matrix.target_arch }}
               path: dist
