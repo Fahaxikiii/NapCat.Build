@@ -27,7 +27,7 @@ jobs:
           npm i --arch=${{ matrix.target_arch }} --platform=${{ matrix.target_platform }} 
           npm run build:prod
           cd dist
-          npm i --omit=dev
+          npm i --omit=dev --arch=${{ matrix.target_arch }} --platform=${{ matrix.target_platform }} 
           cd ..
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
@@ -57,7 +57,7 @@ jobs:
                 npm i --arch=${{ matrix.target_arch }} --platform=${{ matrix.target_platform }} 
                 npm run build:prod
                 cd dist
-                npm i --omit=dev
+                npm i --omit=dev --arch=${{ matrix.target_arch }} --platform=${{ matrix.target_platform }} 
                 cd ..
         - name: Upload Artifact
           uses: actions/upload-artifact@v4
